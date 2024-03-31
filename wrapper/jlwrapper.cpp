@@ -9,7 +9,7 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
 
     int nnodes = std::max(*std::max_element(std::begin(_src), std::end(_src)), *std::max_element(std::begin(_dst), std::end(_dst)));
     int nedges = 0;
-    std::vector<std::vector<int> > adj(nnodes, std::vector<int>())
+    std::vector<std::vector<int> > adj(nnodes, std::vector<int>());
     for(auto i: _src)
         for(auto j: _dst)
         {
