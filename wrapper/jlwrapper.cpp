@@ -1,5 +1,5 @@
-#include "wrapper/jlwrapper.h"
-#include "algo/branch_and_reduce_algorithm.h"
+#include "jlwrapper.h"
+#include "branch_and_reduce_algorithm.h"
 #include <vector>
 
 static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _dst, jlcxx::ArrayRef<int> _sol)
