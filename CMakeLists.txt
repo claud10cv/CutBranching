@@ -34,7 +34,8 @@ endif()
 
 add_executable(mis main.cpp algo/branch_and_reduce_algorithm.cpp algo/modified.cpp algo/separator_refinement/fm_ns_local_search.cpp)
 add_library(miscb SHARED algo/branch_and_reduce_algorithm.cpp algo/modified.cpp algo/separator_refinement/fm_ns_local_search.cpp wrapper/jlwrapper.cpp)
-set_target_properties(miscb PROPERTIES PUBLIC_HEADER "wrapper/jlwrapper.h")
+target_include_directories(miscb PRIVATE wrapper algo)
+set_target_properties(miscb PROPERTIES PUBLIC_HEADER "jlwrapper.h")
 #target_link_libraries(MIS ${CMAKE_SOURCE_DIR}/Metis/build/Linux-x86_64/libmetis/libmetis.a)
 target_link_libraries(miscb PRIVATE JlCxx::cxxwrap_julia JlCxx::cxxwrap_julia_stl)
 
