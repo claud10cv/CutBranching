@@ -62,7 +62,7 @@ public:
 
     void restore() override;
 
-    virtual void reverse(std::vector<int> &x) {
+    virtual void reverse(std::vector<int> &x) override {
         int k = removed.size() / 2;
         if (x[vs[0]] == 0) {
             for (int i = 0; i < k; i++) x[removed[i]] = 1;
