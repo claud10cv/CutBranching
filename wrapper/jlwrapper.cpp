@@ -1,4 +1,5 @@
 #include "jlwrapper.h"
+#include "algo/timer.h"
 #include "branch_and_reduce_algorithm.h"
 #include <vector>
 
@@ -21,6 +22,7 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
     branch_and_reduce_algorithm::resetStatistics();
     branch_and_reduce_algorithm algo = branch_and_reduce_algorithm(adj, nnodes);
     timer t;
+    t.restart();
     int opt = algo.solve(t, 86400);
     std::vector<bool> mis(nnodes, false);
     algo.get_solved_is(mis);
