@@ -32,7 +32,7 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
     for(int i = 0; i < (int)mis.size(); ++ i) _sol[i] = mis[i];
     return;
 }
-JLCXX_MODULE define_julia_module(jlcxx::Module& mod)
+JLCXX_MODULE define_julia_module_cb(jlcxx::Module& mod)
 {
   mod.method("max_indep_set_cb", &max_indep_set_cb);
 }
