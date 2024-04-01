@@ -1,5 +1,5 @@
 #include "jlwrapper.h"
-#include "algo/timer.h"
+#include "timer.h"
 #include "branch_and_reduce_algorithm.h"
 #include <vector>
 
