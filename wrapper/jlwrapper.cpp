@@ -18,9 +18,12 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
         adj[i].push_back(j);
         adj[j].push_back(i);
     }
+
+    debug_info_logger logger("debug.log", nnodes, nedges);
     
     branch_and_reduce_algorithm::resetStatistics();
     branch_and_reduce_algorithm algo = branch_and_reduce_algorithm(adj, nnodes);
+    algo.logger = &logger;
     timer t;
     t.restart();
     int opt = algo.solve(t, 86400);
