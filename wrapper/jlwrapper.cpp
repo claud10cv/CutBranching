@@ -15,7 +15,7 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
         int i = _src[e] - 1;
         int j = _dst[e] - 1;
         adj[i].push_back(j);
-        adj[j].push_back(i)
+        adj[j].push_back(i);
     }
     
     branch_and_reduce_algorithm::resetStatistics();
