@@ -8,18 +8,16 @@ static void max_indep_set_cb(jlcxx::ArrayRef<int> _src, jlcxx::ArrayRef<int> _ds
     branch_and_reduce_algorithm::USE_DEPENDENCY_CHECKING = true;
 
     int nnodes = std::max(*std::max_element(std::begin(_src), std::end(_src)), *std::max_element(std::begin(_dst), std::end(_dst)));
-    int nedges = 0;
+    int nedges = (int) _src.size();
     std::vector<std::vector<int> > adj(nnodes, std::vector<int>());
-    for(auto i: _src)
-        for(auto j: _dst)
-        {
-            adj[i - 1].push_back(j - 1);
-            adj[j - 1].push_back(i - 1);
-        }
-    for(auto edges: adj)
-        nedges += adj.size();
-    nedges /= 2;
-
+    for(int e = 0; e < nedges; ++ e)
+    {
+        i = _src[e] - 1;
+        j = _dst[e] - 1;
+        adj[i].push_back(j);
+        adj[j].push_back(i)
+    }
+    
     branch_and_reduce_algorithm::resetStatistics();
     branch_and_reduce_algorithm algo = branch_and_reduce_algorithm(adj, nnodes);
     timer t;
