@@ -92,22 +92,22 @@ public:
     void restore() override;
 
     void reverse(std::vector<int> &x) override {
-        bool A0 = false;
-        bool A1 = true;
-        bool B0 = false;
-        bool B1 = true;
+        bool _A0 = false;
+        bool _A1 = true;
+        bool _B0 = false;
+        bool _B1 = true;
         for (int i = 0; i < k; i++) {
-            if (x[vs[i]] == 0) A0 = true;
-            if (x[vs[i]] != 1) A1 = false;
+            if (x[vs[i]] == 0) _A0 = true;
+            if (x[vs[i]] != 1) _A1 = false;
         }
         for (int i = k; i < static_cast<int>(vs.size()); i++) {
-            if (x[vs[i]] == 0) B0 = true;
-            if (x[vs[i]] != 1) B1 = false;
+            if (x[vs[i]] == 0) _B0 = true;
+            if (x[vs[i]] != 1) _B1 = false;
         }
-        if (A1 || B0) {
+        if (_A1 || _B0) {
             for (int i = 0; i < static_cast<int>(removed.size()/ 2); i++) x[removed[i]] = 0;
             for (int i = static_cast<int>(removed.size() / 2); i < static_cast<int>(removed.size()); i++) x[removed[i]] = 1;
-        } else if (B1 || A0) {
+        } else if (_B1 || _A0) {
             for (int i = 0; i < static_cast<int>(removed.size() / 2); i++) x[removed[i]] = 1;
             for (int i = static_cast<int>(removed.size() / 2); i < static_cast<int>(removed.size()); i++) x[removed[i]] = 0;
         }
