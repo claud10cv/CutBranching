@@ -92,8 +92,10 @@ public:
     void restore() override;
 
     void reverse(std::vector<int> &x) override {
-        bool A0 = false, A1 = true;
-        bool B0 = false, B1 = true;
+        bool A0 = false;
+        bool A1 = true;
+        bool B0 = false;
+        bool B1 = true;
         for (int i = 0; i < k; i++) {
             if (x[vs[i]] == 0) A0 = true;
             if (x[vs[i]] != 1) A1 = false;
